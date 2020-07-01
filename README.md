@@ -20,3 +20,50 @@ rails new rails-demo-1 --database=postgresql --skip-action-mailbox --skip-action
 # 打开这个项目
 # 在 .gitignore里 添加 .idea / .vscode 忽略提交
 ```
+
+
+### 如何运行项目
+
+> docker 创建数据库容器，解决各种繁琐安装软件问题
+
+```
+# 项目根目录运行
+docker run -v `pwd`/demo_pg_data:/var/lib/postgresql/data -p 5001:5432 -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=123456 -d postgres:12.2
+```
+
+> 修改数据库配置 config/database.yml
+
+```
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: admin
+  password: 123456
+  host: localhost
+  port: 5001
+
+development:
+  <<: *default
+  database: morney_rails_1_development
+
+test:
+  <<: *default
+  database: morney_rails_1_test
+
+production:
+  <<: *default
+  database: morney_rails_1_production
+  username: morney_rails_1
+  password: <%= ENV['MORNEY_RAILS_1_DATABASE_PASSWORD'] %>
+```
+
+> 创建数据库
+
+```
+bin/rails db:create
+```
+
+> 运行
+
+`bin/rails s`

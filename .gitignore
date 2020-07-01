@@ -27,3 +27,4 @@
 /config/master.key
 /.idea
 /.vscode
+/demo_pg_data/*
