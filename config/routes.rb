@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   #
   # 然后到 app/controllers 里新建 first_controller.rb
   # 它的类名必须 叫这个 class FirstController < ApplicationController
+  get '/hi',to: 'first#hi'
 end

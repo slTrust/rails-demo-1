@@ -10,4 +10,7 @@ class FirstController < ApplicationController
         # app/views/first目录里新建 hello.html
     render 'first/hello'
   end
+  def hi
+    render 'first/hi'
+  end
 end
