@@ -11,6 +11,7 @@ class FirstController < ApplicationController
     render 'first/hello'
   end
   def hi
+    @xxx = 'controller里的@变量'
     render 'first/hi'
   end
 end

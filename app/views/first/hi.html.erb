@@ -1,0 +1,18 @@
+<h1>hi</h1>
+<div>
+    <% a = 5 %>
+    a = <%= a %>,
+    <% if a > 10 %>
+        a 很大
+        <% else %>
+        a 很小
+    <% end %>
+
+    <br/>  
+    控制器里的变量:
+    <%= @xxx %>
+</div>
+
+<% content_for :footer do %>
+ 页脚内容
+<% end%>

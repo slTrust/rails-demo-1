@@ -9,5 +9,10 @@
 
 <%= yield %>
 
+<% if content_for? :footer %>
+    <footer>
+        <%= yield :footer %>
+    </footer>
+<% end %>
 </body>
 </html>
